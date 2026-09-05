@@ -1,0 +1,16 @@
+defaults:
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+
+device: auto
+seed: 0
+batch_size: 8
+input_dim: 16
+output_dim: 7
+
+# Do not create Hydra output directories for an environment check.
+hydra:
+  output_subdir: null
+  run:
+    dir: .

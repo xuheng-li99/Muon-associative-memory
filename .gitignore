@@ -203,6 +203,12 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Experiment and Hydra outputs
+runs/
+outputs/
+multirun/
+.hydra/
+
 # Ruff stuff:
 .ruff_cache/
 
