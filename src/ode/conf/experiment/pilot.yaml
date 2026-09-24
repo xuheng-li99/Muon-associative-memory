@@ -1,0 +1,5 @@
+name: pilot
+mode: pairs
+# Main-text phase portrait: p_S on x, p_R on y, five Table 1 dynamics.
+pairs: [[64, 16]]
+delta: 0.001

@@ -1,0 +1,29 @@
+defaults:
+  - experiment: pilot
+  - dynamics: main_text
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+
+output_root: runs/experiment1
+initialization:
+  alpha: 0.01
+  beta: 0.01
+solver:
+  method: DOP853
+  rtol: 1.0e-9
+  atol: 1.0e-12
+  initial_horizon: 100.0
+  max_time: 1.0e10
+  horizon_growth: 10.0
+  samples_per_segment: 2000
+
+hydra:
+  job:
+    chdir: false
+  output_subdir: null
+  run:
+    dir: ${output_root}
+  sweep:
+    dir: ${output_root}/multirun/${now:%Y-%m-%d_%H-%M-%S-%f}
+    subdir: ${hydra.job.num}

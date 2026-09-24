@@ -1,0 +1,4 @@
+name: precision
+mode: pairs
+pairs: [[256, 16]]
+delta: 0.000001

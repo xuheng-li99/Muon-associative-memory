@@ -1,0 +1,5 @@
+name: appendix_precision
+mode: pairs
+pairs: [[64, 16]]
+# One trajectory per flow supports every larger error queried in the notebook.
+delta: 0.000001

@@ -1,0 +1,2 @@
+name: all
+conditions: [gf, spectral, sign_ooo, sign_ooh, sign_oho, sign_ohh, sign_hoo, sign_hoh, sign_hho, sign_hhh]

@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11,<3.13"
 dependencies = [
     "hydra-core==1.3.2",
+    "scipy>=1.12,<2",
     "numpy>=1.26,<2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
     "numpy>=1.26,<3; sys_platform != 'darwin' or platform_machine != 'x86_64'",
 ]
@@ -30,20 +31,28 @@ cu126 = [
 
 [project.scripts]
 muon-smoke = "muon_assoc.smoke:main"
+muon-ode = "ode.run:main"
 
 [dependency-groups]
 dev = [
     "pytest>=8.3,<10",
     "ruff>=0.11,<1",
 ]
+notebook = [
+    "jupyterlab>=4,<5",
+    "ipykernel>=6,<8",
+    "matplotlib>=3.8,<4",
+]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/muon_assoc"]
+packages = ["src/muon_assoc", "src/ode"]
 
 [tool.hatch.build]
 include = [
     "src/muon_assoc/**/*.py",
     "src/muon_assoc/conf/**/*.yaml",
+    "src/ode/**/*.py",
+    "src/ode/conf/**/*.yaml",
 ]
 
 [tool.pytest.ini_options]

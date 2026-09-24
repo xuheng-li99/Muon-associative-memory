@@ -9,6 +9,10 @@ if ! command -v uv >/dev/null 2>&1; then
 fi
 
 case "$backend" in
+    ode)
+        uv sync --locked
+        uv run python -c 'import ode, scipy; print("ODE environment ready; SciPy", scipy.__version__)'
+        ;;
     cpu)
         uv sync --locked --extra cpu
         uv run muon-smoke device=cpu
@@ -26,7 +30,7 @@ case "$backend" in
         uv run muon-smoke device=cuda
         ;;
     *)
-        echo "Usage: ./scripts/setup.sh [cpu|cuda]"
+        echo "Usage: ./scripts/setup.sh [ode|cpu|cuda]"
         exit 2
         ;;
 esac
